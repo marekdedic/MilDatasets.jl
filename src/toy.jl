@@ -1,5 +1,9 @@
+using DelimitedFiles;
+using Flux;
+using Mill;
+
 function toyDataset(problem::String)
-	idir = joinpath("data", problem);
+	idir = joinpath(@__DIR__, "../data", problem);
 	fMat = readdlm(joinpath(idir, "data.csv"));
 	labels = Int.(readdlm(joinpath(idir, "labels.csv")))[:];
 	bagids = Int.(readdlm(joinpath(idir, "bagids.csv")))[:];
