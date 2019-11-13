@@ -1,0 +1,7 @@
+name = "MilDatasets"
+uuid = "7417a694-13ab-44a0-9328-b6184c228ba0"
+authors = ["Marek Dědič <developer@dedic.eu>"]
+version = "0.1.0"
+
+[compat]
+julia = "^1.2.0"
