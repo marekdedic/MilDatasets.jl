@@ -3,5 +3,11 @@ uuid = "7417a694-13ab-44a0-9328-b6184c228ba0"
 authors = ["Marek Dědič <developer@dedic.eu>"]
 version = "0.1.0"
 
+[deps]
+DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
+Flux = "587475ba-b771-5e3f-ad9e-33799f191a9c"
+FluxExtensions = "76425322-8995-11e8-0106-93ec95767fb2"
+Mill = "1d0525e4-8992-11e8-313c-e310e1f6ddea"
+
 [compat]
 julia = "^1.2.0"
