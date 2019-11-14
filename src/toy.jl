@@ -1,17 +1,10 @@
-using DelimitedFiles;
-using Flux;
+using FileIO;
+using JLD2;
 using Mill;
 
-function toyDataset(problem::String)
-	idir = joinpath(@__DIR__, "../data", problem);
-	fMat = readdlm(joinpath(idir, "data.csv"));
-	labels = Int.(readdlm(joinpath(idir, "labels.csv")))[:];
-	bagids = Int.(readdlm(joinpath(idir, "bagids.csv")))[:];
-	b = Mill.bags(bagids)
-	y = [maximum(labels[i]) for i in b];
-	ds = BagNode(ArrayNode(Float32.(fMat)), b, y);
-	ds = ds[length.(ds.bags) .> 1];
-	return ds, reflectinmodel(ds, d -> Dense(d, 30, relu), d -> SegmentedMeanMax(d));
+function toyDataset(problem::String)::BagNode{ArrayNode{Matrix{Float64}, Nothing}, AlignedBags, Vector{Int64}}
+	root = joinpath(@__DIR__, "..", "data", problem);
+	return catobs(map(file -> load(joinpath(root, file), "dataset"), readdir(root))...);
 end
 
 BrownCreeper() = toyDataset("BrownCreeper");
