@@ -11,3 +11,5 @@ Mill = "1d0525e4-8992-11e8-313c-e310e1f6ddea"
 
 [compat]
 julia = "^1.2.0"
+FileIO = "^1.0.7"
+JLD2 = "^0.1.3"
